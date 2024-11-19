@@ -5,25 +5,28 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-    
     background: linear-gradient(-180deg, white, #f3e5ff);
 
 }
 
-.historicoContainer {
+body h1{
+    text-align: center;
+}
+
+.certifyColecContainer {
 
     display: flex;
     justify-content: space-around;
-    align-self: center;
+    align-items: center;
     background: linear-gradient(-180deg, white, #cb8fff);
-    border-radius: 0px 0px 16px 16px;
-    width: 80%;
+    border-radius: 0px 0px 64px 64px;
+    width: 98%;
     padding: 1%;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 
 }
 
-.historicoContainer img {
+.certifyColecContainer img {
 
     width: 318px;
     height: 159px;
@@ -33,39 +36,48 @@ body {
 
 }
 
-.select {
-
-    min-width: 50%;
+.navListColecCertify {
+    width: 50%;
+    list-style: none;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    font-size: 16px;
-    padding: 1%;
-
 }
 
-.select a {
+.certifyColecContainer a {
 
     text-decoration: none;
     color: #9900cc;
 
 }
 
-.select a:hover {
+.certifyColecContainer a:hover {
 
     text-decoration: underline;
 
 }
 
-.midHistoricoContainer {
 
-    display: flex;
 
-    justify-content: center;
-    min-height: 50%;
-    min-width: 50%;
-    border-width: 1px;
-    border: 1px;
+@media (max-width: 820px){
 
+    .certifyColecContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navListColecCertify{
+
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .navListColecCertify li {
+
+        letter-spacing: 0;
+        font-size: 14px;
+
+    }
 
 }
