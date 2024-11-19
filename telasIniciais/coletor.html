@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
+    <link rel="stylesheet" href="coletor.css">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+
+    <title>Açaí connect - Cadastrar coletor</title>
+</head>
+
+<body>
+
+    <script src="coletor.js"></script>
+
+    <div class="colectorContainer">
+
+        <img src="/img/Logo_6_Sem_fundo.png" alt="">
+
+        <h1> <i class="fi fi-rs-user"></i> Cadastrar-se como coletor </h1>
+
+        <input type="text" class="nome" placeholder="Nome" id="tipo">
+
+        <input type="tel" class="telefone" placeholder="Telefone" id="tipo">
+
+        <input type="email" class="email" placeholder="E-mail" id="tipo">
+
+        <input type="password" class="senha" placeholder="Senha" id="tipo">
+
+        <div class="colectorConditions">
+            <input type="checkbox" class="terms" id="terms" required>
+            <label for="terms">Li e aceito os <a href="terms.html">Termos e Condições de Uso</a></label>
+        </div>
+
+        <button class="colectorCadas">Cadastrar-se</button>
+
+        <div class="colectorLoginLink">
+            <a href="login.html">Já tem uma conta? (Faça login)</a>
+        </div>
+
+    </div>
+
+    <script src="coletor.js"></script>
+
+</body>
+
+<!-- /* document.querySelector('.colectorCadas').addEventListener('click', function () {
+                const nome = document.querySelector('.nome').value;
+                const telefone = document.querySelector('.telefone').value;
+                const email = document.querySelector('.email').value;
+                const senha = document.querySelector('.senha').value;
+                const termsAccepted = document.querySelector('.terms').checked; // Verifica se a checkbox está marcada
+
+                // Verifica se todos os campos estão preenchidos e se os termos foram aceitos
+                if (nome && telefone && email && senha && termsAccepted) {
+                    // Cria um objeto com os dados do coletor
+                    const coletorData = {
+                        nome: nome,
+                        telefone: telefone,
+                        email: email,
+                        senha: senha
+                    };
+
+                    // Armazena os dados no localStorage
+                    localStorage.setItem('coletor', JSON.stringify(coletorData));
+
+                    alert('Coletor cadastrado com sucesso!');
+                    // Redirecionar ou limpar os campos
+                } else {
+                    alert('Por favor, preencha todos os campos e aceite os Termos e Condições de Uso.');
+                }
+            });*/-->
+
+
+</html>

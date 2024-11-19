@@ -1,0 +1,135 @@
+body {
+
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    
+    background: linear-gradient(-180deg, white, #f3e5ff);
+
+}
+
+body h1 {
+
+    font-weight: initial;
+    align-self: center;
+
+}
+
+.registerContainer {
+
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    background: linear-gradient(-180deg, white, #cb8fff);
+    border-radius: 0px 0px 16px 16px;
+    width: 80%;
+    padding: 1%;
+    margin-bottom: 2%;
+
+}
+
+.registerContainer img {
+
+    width: 318px;
+    height: 159px;
+    max-width: 100%;
+    max-height: 100%;
+
+
+}
+
+.selectRegister {
+
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+    padding: 1%;
+
+}
+
+.selectRegister a {
+
+    text-decoration: none;
+    color: #9900cc;
+
+}
+
+.selectRegister a:hover {
+
+    text-decoration: underline;
+
+}
+
+.containerPit {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    min-width: 1800px;
+    max-width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+
+}
+
+.registerPit {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    width: 800px;
+    max-width: 50%;
+    max-height: 35%;
+    border: 1px solid black;
+    border-radius: 16px;
+
+
+}
+
+.registerPit h2 {
+
+    font-weight:bolder;
+
+}
+
+.headerPit {
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+
+}
+
+.registerButton {
+
+    position: relative;
+    left: -410px;
+    margin-top: 10px;
+    width: 9%;
+    max-width: 165px;
+    padding: 16px;
+    background-color: #9900cc;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center;
+
+
+}
+
+#listPit li{
+
+    margin-right: 5px;
+    padding-bottom: 2%;
+
+}
+

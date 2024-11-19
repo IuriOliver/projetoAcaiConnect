@@ -1,0 +1,131 @@
+/* Estilos gerais */
+body {
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(-180deg, white, #f3e5ff);
+}
+
+.container {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 542px;
+    max-width: 25%;
+    max-height: 25%;
+}
+
+.container img {
+    margin-bottom: 20px;
+    width: 318px;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: initial;
+    font-size: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 10px 0;
+    border: 1px solid #5600CF;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.container button {
+    font-family: sans-serif;
+    background-color: #9900cc;
+    width: 30%;
+    color: white;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 40%;
+}
+
+.container button a {
+    text-decoration: none;
+    color: white;
+}
+
+.container button a:hover {
+    text-decoration: none;
+}
+
+.container a {
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
+.link a {
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+.link {
+    
+    height: 100%;
+    width: auto;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Media Query para telas pequenas (máx. 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Ajusta a largura da container para celulares */
+        padding: 15px; /* Reduz o padding */
+        height: auto; /* Permite que a altura se ajuste conforme o conteúdo */
+    }
+
+    .container img {
+        max-width: 100%; /* Reduz o tamanho da imagem */
+        height: auto; /* Ajusta a altura da imagem para manter a proporção */
+    }
+
+    .message {
+        font-size: 20px; /* Reduz o tamanho da fonte da mensagem */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .container button {
+        width: 50%; /* Faz o botão ocupar 100% da largura */
+        padding: 10px 0; /* Ajusta o padding do botão */
+        margin-top: 20px; /* Ajusta a margem superior do botão */
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 15px; /* Diminui o espaço entre o link e o botão */
+    }
+
+    .link a {
+        font-size: 14px; /* Ajusta o tamanho da fonte do link */
+    }
+}

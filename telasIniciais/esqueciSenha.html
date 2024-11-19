@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
+    <link rel="stylesheet" href="esqueciSenha.css">
+    <title>Açaí connect - Esqueci a senha</title>
+    <script>
+        function sendResetLink() {
+            const emailInput = document.getElementById('forgetEmail').value;
+
+            if (emailInput) {
+                // Aqui você pode adicionar a lógica para enviar o link ao e-mail
+                alert("Link enviado para o e-mail informado.");
+            } else {
+                alert("Por favor, informe um e-mail.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="forgetContainer">
+
+        <img src="/img/Logo_6_Sem_fundo.png" alt="">
+
+        <h1>Redefinição de senha!</h1>
+
+        <p>Informe um e-mail e enviaremos um link para recuperação da sua senha.</p>
+
+        <p class="forgetParagraph"><strong>E-mail</strong></p>
+        <input type="email" name="" id="forgetEmail" placeholder="exemplo@gmail.com">
+
+        <button class="forgetButton" onclick="sendResetLink()">Enviar link</button>
+
+    </div>
+
+</body>
+</html>

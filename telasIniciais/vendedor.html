@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
+    <link rel="stylesheet" href="vendedor.css">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+
+    <title>Açaí connect - Cadastrar vendedor</title>
+</head>
+
+<body>
+
+    <div class="sellerContainer">
+
+        <img src="/img/Logo_6_Sem_fundo.png" alt="">
+
+        <h1> <i class="fi fi-rs-building"></i> Cadastrar-se como vendedor </h1>
+
+        <input type="text" class="nome" placeholder="Nome" id="tipo">
+
+        <input type="tel" class="telefone" placeholder="Telefone" id="tipo">
+
+        <input type="text" class="endereco" placeholder="Endereço" id="tipo">
+
+        <input type="email" class="email" placeholder="E-mail" id="tipo">
+
+        <input type="password" class="senha" placeholder="Senha" id="tipo">
+
+        <input type="text" class="cpf-cnpj" placeholder="CPF ou CNPJ" maxlength="14" id="cpf-cnpj">
+
+        <!-- Selector para CPF ou CNPJ -->
+        <select class="cpf-cnpj-selector" id="cpf-cnpj-selector" onchange="updatePlaceholder()">
+            <option value="cpf">• CPF</option>
+            <option value="cnpj">• CNPJ</option>
+        </select>
+
+        <div class="conditions">
+            <input type="checkbox" class="terms" id="terms" required>
+            <label for="terms">Li e aceito os <a href="terms.html">Termos e Condições de Uso</a></label>
+        </div>
+
+        <button class="cadas">Cadastrar-se</button>
+
+        <div class="loginlink">
+            <a href="login.html">Já tem uma conta? (Faça login)</a>
+        </div>
+
+    </div>
+
+    <script src="vendedor.js"></script>
+
+    <script>
+        function updatePlaceholder() {
+            const selector = document.getElementById('cpf-cnpj-selector');
+            const input = document.getElementById('cpf-cnpj');
+            if (selector.value === 'cpf') {
+                input.placeholder = 'CPF (11 dígitos)';
+                input.maxLength = 11;
+            } else {
+                input.placeholder = 'CNPJ (14 dígitos)';
+                input.maxLength = 14;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
