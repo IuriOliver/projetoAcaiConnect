@@ -33,29 +33,27 @@
 
 <body>
 
-    <div class="registerContainer">
-        <img src="/img/Logo_6_Sem_fundo.png" alt="">
+    <header>
+        <div class="registerContainer">
+            <img src="/img/Logo_6_Sem_fundo.png" alt="">
 
-        <div class="selectRegister">
-
-            <a href="historicoSeller.html"> <i class="fi fi-br-time-past"> </i> Histórico </a>
-
-            <a href="registerSeller.html"> <i class="fi fi-br-map-marker-plus"> </i> Registrar Caroço </a>
-
-            <a href="acompSeller.html"> <i class="fi fi-br-track"></i> </i> Acompanhar Coleta</a>
-
-            <a href="certifySeller.html"> <i class="fi fi-br-degree-credential"> </i> Certificados</a>
-
-            <a href="/telasIniciais/login.html"> <i class="fi fi-br-exit-alt"> </i> Sair </a>
+            <ul class="navList-register">
+                <li><a href="historicoSeller.html"> <i class="fi fi-br-time-past"> </i> Histórico </a></li>
+                <li><a href="registerSeller.html"> <i class="fi fi-br-map-marker-plus"> </i> Registrar Caroço </a></li>
+                <li><a href="acompSeller.html"> <i class="fi fi-br-track"></i> </i> Acompanhar Coleta</a></li>
+                <li> <a href="certifySeller.html"> <i class="fi fi-br-degree-credential"> </i> Certificados</a></li>
+                <li><a href=""> <i class="fi fi-br-user"> </i>Perfil</a></li>
+                <li><a href="/telasIniciais/login.html"> <i class="fi fi-br-exit-alt"> </i> Sair </a></li>
+            </ul>
 
         </div>
-    </div>
+    </header>
 
     <h1>Selecione a localização onde quer que seja feita a coleta do caroço</h1>
 
     <div class="containerPit">
         <div id="map"></div>
-
+        <br>
         <div class="registerPit">
             <div class="headerPit">
                 <h2>Pontos de coletas cadastrados</h2>
@@ -69,28 +67,28 @@
     <script>
         // Inicializando o mapa
         var map = L.map('map').setView([-1.3857, -48.4252], 11);
-
+    
         // Adicionando o tile layer do OpenStreetMap
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
-
+    
         var lastLatLng = null; // Variável para armazenar a última posição clicada
-
+    
         // Evento de clique no mapa
         map.on('click', function (e) {
             lastLatLng = e.latlng; // Armazena as coordenadas do clique
             alert("Local selecionado!"); // Alerta com a localização
         });
-
+    
         // Função para adicionar um marcador
         function addMarker(lat, lng, info) {
             var marker = L.marker([lat, lng]).addTo(map); // Adiciona o marcador padrão
             marker.bindPopup(info).openPopup(); // Vincula um popup ao marcador
             return marker; // Retorna o marcador
         }
-
+    
         // Evento de clique no botão de registrar
         document.querySelector('.registerButton').addEventListener('click', function () {
             if (lastLatLng) { // Verifica se uma posição foi selecionada
@@ -99,19 +97,26 @@
                 var endereco = prompt("Endereço:");
                 var quantidade = prompt("Quantidade:");
                 var horario = prompt("Horário de coleta:");
-
+    
                 // Verifica se todos os campos foram preenchidos
                 if (fornecedor && endereco && quantidade && horario) {
-                    // Formata a string com as informações, agora com quebras de linha usando <br>
-                    var info = `Nome do fornecedor: ${fornecedor}; Endereço: ${endereco};Quantidade: ${quantidade};Horário de coleta: ${horario}.`;
-
+                    // Formata a string com as informações, colocando as variáveis em negrito
+                    var info = `<b>Nome do fornecedor:</b> ${fornecedor};<br> 
+                                <b>Endereço (CEP e número do local):</b> ${endereco};<br> 
+                                <b>Quantidade (em KG):</b> ${quantidade};<br> 
+                                <b>Horário de coleta (De 00:00 até ás 00:00):</b> ${horario}.`;
+    
                     // Adiciona o marcador na localização clicada
                     addMarker(lastLatLng.lat, lastLatLng.lng, info);
-
+    
                     // Cria um novo item de lista
                     var listItem = document.createElement('li');
-                    listItem.textContent = info; // Define o texto do item da lista
-                    document.getElementById('listPit').appendChild(listItem); // Adiciona o item à lista
+    
+                    // Define o conteúdo com quebras de linha e negrito
+                    listItem.innerHTML = info;
+    
+                    // Adiciona o item à lista
+                    document.getElementById('listPit').appendChild(listItem);
                 } else {
                     alert("Por favor, preencha todos os campos."); // Alerta se algum campo estiver vazio
                 }
@@ -120,6 +125,8 @@
             }
         });
     </script>
+    
+    
 </body>
 
 </html>

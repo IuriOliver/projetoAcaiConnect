@@ -17,20 +17,20 @@ body h1 {
 
 }
 
-.registerContainer {
+.acompSellerContainer {
 
     display: flex;
-    align-self: center;
+    align-items: center;
     justify-content: space-around;
     background: linear-gradient(-180deg, white, #cb8fff);
-    border-radius: 0px 0px 16px 16px;
-    width: 80%;
+    border-radius: 0px 0px 64px 64px;
+    width: 98%;
     padding: 1%;
     margin-bottom: 2%;
 
 }
 
-.registerContainer img {
+.acompSellerContainer img {
 
     width: 318px;
     height: 159px;
@@ -40,96 +40,48 @@ body h1 {
 
 }
 
-.selectRegister {
-
-    min-width: 50%;
+.navList-acompSeller{
+    width: 50%;
+    list-style: none;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    font-size: 16px;
-    padding: 1%;
-
 }
 
-.selectRegister a {
+.acompSellerContainer a {
 
     text-decoration: none;
     color: #9900cc;
 
 }
 
-.selectRegister a:hover {
+.acompSellerContainer a:hover {
 
     text-decoration: underline;
 
 }
 
-.containerPit {
 
-    display: flex;
-    justify-content: space-evenly;
-    align-self: center;
-    min-width: 1800px;
-    max-width: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
-    
+@media (max-width: 820px){
 
-}
+    .acompSellerContainer{
+        display: flex;
+        flex-direction: column;
+    }
 
-.registerPit {
+    .navList-acompSeller{
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 500px;
-    width: 800px;
-    max-width: 50%;
-    max-height: 35%;
-    border: 1px solid black;
-    border-radius: 16px;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
 
+    }
 
-}
+    .navList-acompSeller li {
 
-.registerPit h2 {
+        letter-spacing: 0;
+        font-size: 14px;
 
-    font-weight:bolder;
-
-}
-
-.headerPit {
-
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 100%;
-
-}
-
-.registerButton {
-
-    position: relative;
-    left: -410px;
-    margin-top: 10px;
-    width: 9%;
-    max-width: 165px;
-    padding: 16px;
-    background-color: #9900cc;
-    color: white;
-    border: none;
-    border-radius: 16px;
-    font-size: 16px;
-    cursor: pointer;
-    align-self: center;
-
-
-}
-
-#listPit li{
-
-    margin-left: -5%;
-    padding-bottom: 2%;
+    }
 
 }
 
