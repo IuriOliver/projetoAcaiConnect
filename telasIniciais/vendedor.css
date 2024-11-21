@@ -95,7 +95,7 @@ body {
     padding: 3% 5%;
     border: none;
     margin-bottom: 2%;
-    
+    font-size: 16px;
 }
 
 .loginlink {
@@ -110,6 +110,10 @@ body {
 
 .loginlink a:hover {
     text-decoration: underline;
+}
+
+Button:hover {
+    background-color: #7a00a3;
 }
 
 footer{
@@ -166,7 +170,7 @@ footer a:hover{
     .cadas {
         width: 50%;
         padding: 12px;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .sellerContainer h1 {

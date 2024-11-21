@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="searchColector.css">
     <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-        
 
     <title>Açaí connect - Buscar Caroço</title>
 </head>
@@ -60,6 +60,17 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>Siga-nos:
+            <a href="https://github.com/IuriOliver" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/IuriOliver</a>
+            <a href="https://github.com/GabrielInada" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GabrielInada</a>
+            <a href="https://github.com/GustavoNeves19" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GustavoNeves19</a>
+        </p>
+    </footer>
 
     <script>
         var lastLatLng = null; // Variable to store the last clicked position
@@ -109,10 +120,10 @@
             var tableData = JSON.parse(localStorage.getItem('tableData')) || [];
             tableData.forEach(data => {
                 var row = document.createElement('tr');
-                row.innerHTML = `<td>${data.fornecedor}</td>
-                         <td>${data.endereco}</td>
-                         <td>${data.quantidade}</td>
-                         <td>${data.horario}</td>`;
+                row.innerHTML = `<td><a href="detailsColect.html">${data.fornecedor}</a></td>
+                                 <td>${data.endereco}</td>
+                                 <td>${data.quantidade}</td>
+                                 <td>${data.horario}</td>`;
                 document.getElementById('listPit').appendChild(row);
             });
         }
@@ -167,10 +178,10 @@
 
                     // Create a new row in the table
                     var row = document.createElement('tr');
-                    row.innerHTML = `<td>${fornecedor}</td>
-                                     <td>${endereco}</td>
-                                     <td>${quantidade}</td>
-                                     <td>${horario}</td>`;
+                    row.innerHTML = `<td><a href="detailsColect.html">${fornecedor}</a></td>
+                 <td>${endereco}</td>
+                 <td>${quantidade}</td>
+                 <td>${horario}</td>`;
                     document.getElementById('listPit').appendChild(row);
 
                     // Save the table data in local storage

@@ -110,6 +110,10 @@ body{
 
 }
 
+Button:hover {
+    background-color: #7a00a3;
+}
+
 .chooseFunction a{
 
     color: white;

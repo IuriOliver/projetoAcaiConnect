@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="acompColector.css">
+    <link rel="stylesheet" href="detailsColect.css">
     <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 
@@ -41,9 +41,9 @@
         </div>
     </header>
 
-    <h1>Acompanhamento do pedido</h1>
+    <h1>Detalhes do pedido</h1>
 
-    <div class="textAcompSeller">
+    <div class="textDetailsColec">
         <p><b>Situação atual:</b> Em andamento<br> <br>
             <b>Data de solicitação:</b> 06/10/2024 <br> <br>
             <b>Horário de coleta:</b> 08:00 - 18:00 <br> <br>
@@ -55,14 +55,13 @@
 
     <div id="map"></div>
 
-    <div class="textAcompSeller2">
+    <div class="textDetailsColec2">
         <p><b>Observações:</b> sem observações</p>
     </div>
 
     <!-- Button container for the two buttons -->
     <div class="button-container">
-        <button id="confirmCompletion">Confirmar conclusão</button>
-        <button id="cancelOrder">Cancelar pedido</button>
+        <button id="confirmCompletion">Notificar interesse</button>
     </div>
 
     <footer>
@@ -102,13 +101,8 @@
 
         // Add event listeners for the buttons
         document.getElementById('confirmCompletion').addEventListener('click', function () {
-            alert('Descarte concluido!');
+            alert('Seu interesse foi notificado ao vendedor!');
             // Add logic here to handle order completion
-        });
-
-        document.getElementById('cancelOrder').addEventListener('click', function () {
-            alert('Descarte cancelado!');
-            // Add logic here to handle order cancellation
         });
     </script>
 

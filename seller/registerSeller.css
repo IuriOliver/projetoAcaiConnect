@@ -109,9 +109,13 @@ body h1 {
     font-size: 16px;
     cursor: pointer;
     align-self: center;
-    margin-bottom: 100px;
+    margin-bottom: 2%;
 
 
+}
+
+Button:hover {
+    background-color: #7a00a3;
 }
 
 #listPit li {

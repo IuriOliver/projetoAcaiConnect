@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
+    <link rel="stylesheet" href="certificadoColector.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <title>Açaí Connect - Certificado</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-180deg, white, #f3e5ff);
+            height: 100vh;
+            /* Full height to center vertically */
+        }
+
+        .certificate {
+            border: 2px solid #9900cc;
+            border-radius: 10px;
+            padding: 40px;
+            /* Increased padding for larger certificate */
+            text-align: center;
+            width: 90%;
+            /* Width set to 90% to take up most of the A4 */
+            max-width: 800px;
+            /* Maximum width for the certificate */
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* For positioning the logo */
+            margin-bottom: 20px;
+            /* Space between certificate and button */
+            box-sizing: border-box;
+            /* Include padding in width/height */
+        }
+
+        .certificate img {
+            width: 100%;
+            /* Adjusts the logo width to fit the certificate */
+            max-width: 300px;
+            /* Maximum width for the logo */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-bottom: 20px;
+            /* Space below the logo */
+        }
+
+        h1 {
+            color: #9900cc;
+            margin-top: 0;
+            /* Remove top margin to align with logo */
+        }
+
+        .print-button {
+            padding: 10px 20px;
+            background-color: #9900cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            /* Center the button text */
+        }
+
+        .print-button:hover {
+            background-color: #7a00a3;
+        }
+
+        .certificate p {
+            font-size: 24px;
+        }
+
+        footer {
+            padding: 0;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(-180deg, white, #cb8fff);
+
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #9900cc;
+            margin-left: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width:768px) {
+            footer {
+                font-size: 12px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                border: 4px solid #9900cc;
+                border-radius: 16px;
+                width: 94%;
+                height: 90%;
+                margin: 0;
+                margin-left: 1%;
+                padding: 20px;
+                /* Remove default margin */
+                height: auto;
+                /* Allow height to be auto */
+                display: flex;
+                /* Use flex to center */
+                justify-content: center;
+                /* Center horizontally */
+                align-items: center;
+                /* Center vertically */
+                -webkit-print-color-adjust: exact;
+                /* Ensure colors are printed correctly */
+            }
+
+            footer {
+                display: none;
+            }
+
+            @page {
+                size: A4 landscape;
+                /* Set page size to A4 landscape */
+                margin: 0;
+                /* Remove margins */
+            }
+
+            .certificate {
+                width: 100vw;
+                /* Set width to fill the entire viewport width */
+                height: 76vh;
+                /* Allow height to adjust */
+                padding: 20px;
+                margin-top: 10%;
+                /* Maintain padding for print */
+                box-shadow: none;
+                /* Remove shadow for print */
+
+                /* Remove margin to ensure it fills the page */
+                border: none;
+                /* Remove border */
+            }
+
+            .print-button {
+                display: none;
+                /* Hide the print button when printing */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="certificate">
+        <img src="/img/Logo_6_Sem_Fundo.png" alt="Logo Açaí Connect">
+        <h1>Certificado de Coleta Legal de Caroços de Açaí</h1>
+        <p>Este certificado confirma que o coletor abaixo irá descartar legalmente ou reutilizar sustentavelmente a
+            quantidade de caroço
+            de açaí coletada abaixo.</p>
+        <h2 id="collectorName">Coletor: </h2>
+        <h3 id="seedWeight">Quantidade coletada: 0 kg</h3>
+        <p>Data: <span id="currentDate"></span></p>
+    </div>
+
+    <button class="print-button" onclick="window.print()">Imprimir Certificado</button>
+
+    <script>
+        // Retrieve collector information from local storage
+        const coletor = JSON.parse(localStorage.getItem('coletor'));
+        const weightCollected = 50; // Example weight, you can replace this with actual data
+
+        // Display collector's name and weight collected
+        if (coletor) {
+            document.getElementById('collectorName').innerText += coletor.nome;
+        }
+
+        // Display current date
+        const currentDate = new Date().toLocaleDateString('pt-BR');
+        document.getElementById('currentDate').innerText = currentDate;
+
+        // Display weight collected
+        document.getElementById('seedWeight').innerText = `Quantidade coletada: ${weightCollected} kg`;
+    </script>
+
+    <footer>
+        <p>Siga-nos:
+            <a href="https://github.com/IuriOliver" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/IuriOliver</a>
+            <a href="https://github.com/GabrielInada" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GabrielInada</a>
+            <a href="https://github.com/GustavoNeves19" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GustavoNeves19</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

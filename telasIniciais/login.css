@@ -63,6 +63,10 @@ input[type="password"] {
     margin-top: 40%;
 }
 
+Button:hover {
+    background-color: #7a00a3;
+}
+
 .container button a {
     text-decoration: none;
     color: white;
