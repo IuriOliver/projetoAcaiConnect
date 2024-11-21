@@ -5,9 +5,14 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-    
+
     background: linear-gradient(-180deg, white, #f3e5ff);
 
+}
+
+body h1 {
+    text-align: center;
+    font-weight: initial;
 }
 
 .certifyContainerSeller {
@@ -19,7 +24,7 @@ body {
     border-radius: 0px 0px 64px 64px;
     width: 98%;
     padding: 1%;
-    margin-bottom: 15%;
+    margin-bottom: 1%;
 
 }
 
@@ -55,29 +60,68 @@ body {
 
 }
 
-.midCertifyContainer {
+footer {
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(-180deg, white, #cb8fff);
+    border-radius: 64px 64px 0 0;
+}
 
-    display: flex;
+footer a {
+    text-decoration: none;
+    color: #9900cc;
+    margin-left: 16px;
+}
 
-    justify-content: center;
-    min-height: 50%;
-    min-width: 50%;
-    border-width: 1px;
-    border: 1px;
+footer a:hover {
+    text-decoration: underline;
+}
 
+table {
+    align-self: center;
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
+th,
+td {
+    border: 1px solid #5600CF;
+    padding: 8px;
+    text-align: center;
+
+}
+
+td {
+    color: #9900cc;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Makes the link color inherit from the td */
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Underline on hover */
 }
 
 @media (max-width: 820px) {
 
-    .certifyContainerSeller{
+    .certifyContainerSeller {
 
         display: flex;
         flex-direction: column;
 
     }
-    
-    .navList-certify{
+
+    .navList-certify {
 
         width: 90%;
         display: flex;
@@ -89,6 +133,12 @@ body {
 
         letter-spacing: 0;
         font-size: 14px;
+
+    }
+
+    footer {
+
+        font-size: 12px;
 
     }
 }

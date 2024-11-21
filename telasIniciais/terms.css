@@ -7,6 +7,7 @@ body {
     align-items: center;
     background: linear-gradient(-180deg, white, #f3e5ff);
     min-height: 100vh;
+    overflow-x: hidden;
     
 
 }
@@ -27,7 +28,7 @@ body img {
     max-height: 100%;
     min-height: 50%;
     max-width: 50%;
-    padding-bottom: 2%;
+    
 
 }
 
@@ -36,5 +37,91 @@ h1{
     font-size: 30px;
     max-width: 100%;
     text-align: center;
+
+}
+
+footer{
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    bottom: 0%;
+    width: 100vw;
+    text-align: center;
+    background: linear-gradient(-180deg, white, #cb8fff);
+    margin-bottom: 0;
+    border-radius: 64px 64px 0 0;
+    
+}
+
+footer a{
+    text-decoration: none;
+    color: #9900cc;
+    margin-left: 16px;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width: 768px){
+
+    footer{
+        padding: 0;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        bottom: 0;
+        text-align: center;
+        background: linear-gradient(-180deg, white, #cb8fff);
+        margin-bottom: 0;
+        
+    }
+
+    body h1{
+        font-size: 22px;
+    }
+
+    body h2{
+        font-size: 20px;
+    }
+
+    footer{
+        
+        font-size: 12px;
+        
+        
+    }
+
+}
+
+@media (max-width: 1518px){
+
+    footer{
+        padding: 0;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        bottom: 0;
+        text-align: center;
+        background: linear-gradient(-180deg, white, #cb8fff);
+        margin-bottom: 0;
+        
+    }
+
+    body h1{
+        font-size: 22px;
+    }
+
+    body h2{
+        font-size: 20px;
+    }
+
+    footer{
+        
+        font-size: 12px;
+        
+        
+    }
 
 }

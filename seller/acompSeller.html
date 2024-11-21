@@ -14,18 +14,13 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.4.0/assets/css/leaflet.css" />
 
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <style>
-        #map {
-            height: 500px;
-            width: 800px;
-            max-width: 50%;
-            max-height: 35%;
-            border: 1px solid black;
-            border-radius: 16px;
-        }
+       
     </style>
 
     <title>Açaí connect - Registrar caroço</title>
@@ -42,14 +37,82 @@
                 <li><a href="registerSeller.html"> <i class="fi fi-br-map-marker-plus"> </i> Registrar Caroço </a></li>
                 <li><a href="acompSeller.html"> <i class="fi fi-br-track"></i> Acompanhar Coleta </a></li>
                 <li><a href="certifySeller.html"> <i class="fi fi-br-degree-credential"> </i> Certificados</a></li>
-                <li><a href=""><i class="fi fi-br-user">Perfil</i></a></li>
+                <li><a href="perfilSeller.html"><i class="fi fi-br-user">Perfil</i></a></li>
                 <li><a href="/telasIniciais/login.html"> <i class="fi fi-br-exit-alt"> </i> Sair </a></li>
             </ul>
         </div>
     </header>
-    
-    <h1>Processos em andamento</h1>
 
+    <h1>Acompanhamento do pedido</h1>
+
+    <div class="textAcompSeller">
+        <p><b>Situação atual:</b> Em andamento<br> <br>
+            <b>Data de solicitação:</b> 06/10/2024 <br> <br>
+            <b>Horário de coleta:</b> 08:00 - 18:00 <br> <br>
+            <b>Confirmação do vendedor:</b> Pendente <br> <br>
+            <b>Sua confirmação:</b> Pendente <br> <br>
+            <b>Endereço do pedido:</b> Travessa Francisco Caldeira Castelo Branco, 750
+        </p>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="textAcompSeller2">
+        <p><b>Observações:</b> sem observações</p>
+    </div>
+
+    <!-- Button container for the two buttons -->
+    <div class="button-container">
+        <button id="confirmCompletion">Confirmar conclusão</button>
+        <button id="cancelOrder">Cancelar pedido</button>
+    </div>
+
+    <footer>
+        <p>Siga-nos:
+            <a href="https://github.com/IuriOliver" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/IuriOliver</a>
+            <a href="https://github.com/GabrielInada" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GabrielInada</a>
+            <a href="https://github.com/GustavoNeves19" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GustavoNeves19</a>
+        </p>
+    </footer>
+
+    <script>
+        var lastLatLng = null; // Variable to store the last clicked position
+
+        // Initialize the map
+        var map = L.map('map').setView([-1.3857, -48.4252], 11);
+
+        // Add the tile layer from OpenStreetMap
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Create a custom icon
+        var acaiIcon = L.icon({
+            iconUrl: '/img/acai.png', // Ensure this path is correct
+            iconSize: [38, 38], // Size of the icon
+            iconAnchor: [19, 38], // Point of the icon which will correspond to marker's location
+            popupAnchor: [0, -38] // Point from which the popup should open relative to the iconAnchor
+        });
+
+        // Add a marker with the custom icon at the specified location
+        var marker = L.marker([-1.448869, -48.470945], { icon: acaiIcon }).addTo(map);
+        marker.bindPopup("<b>Açaí Location</b>").openPopup(); // Optional: Add a popup to the marker
+
+        // Add event listeners for the buttons
+        document.getElementById('confirmCompletion').addEventListener('click', function () {
+            alert('Descarte concluido!');
+            // Add logic here to handle order completion
+        });
+
+        document.getElementById('cancelOrder').addEventListener('click', function () {
+            alert('Descarte cancelado!');
+            // Add logic here to handle order cancellation
+        });
+    </script>
 
 </body>
 

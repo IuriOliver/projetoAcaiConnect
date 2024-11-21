@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: white;
-    padding: 30px;
+    padding: 15px;
     border-radius: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 30%;
@@ -24,7 +24,7 @@ body {
 }
 
 .sellerContainer img {
-    width: 318px;
+    width: 280px;
     height: auto;
     max-width: 100%;
     max-height: 100%;
@@ -61,7 +61,7 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     max-width: 100%;
 }
 
@@ -95,7 +95,7 @@ body {
     padding: 3% 5%;
     border: none;
     margin-bottom: 2%;
-    font-size: 16px;
+    
 }
 
 .loginlink {
@@ -112,8 +112,40 @@ body {
     text-decoration: underline;
 }
 
+footer{
+
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(-180deg, white, #cb8fff);
+    border-radius: 64px 64px 0 0;
+  
+    
+}
+
+footer a{
+    text-decoration: none;
+    color: #9900cc;
+    margin-left: 16px;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
 /* Estilização para dispositivos móveis */
 @media (max-width: 768px) {
+
+    footer{
+        
+        font-size: 12px;
+        
+        
+    }
     .sellerContainer {
         max-width: 70%;
         padding: 20px;
@@ -127,7 +159,7 @@ body {
 
     .sellerContainer select {
         position: relative;
-        right: 117px;
+        right: 125px;
         width: 20%;
     }
 
@@ -170,4 +202,60 @@ body {
         max-width: 100%;
         height: auto;
     }
+}
+
+@media (min-width: 769px) and (max-width: 1518px){
+
+    .sellerContainer {
+        max-width: 70%;
+        padding: 20px;
+        height: auto;
+    }
+
+    .sellerContainer input {
+        width: 50%;
+        margin: 8px 0;
+    }
+
+    .sellerContainer select {
+        position: relative;
+        right: 60px;
+        width: 20%;
+    }
+
+    .cadas {
+        width: 50%;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+
+    .conditions {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    .conditions input {
+        position: relative;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+        right: 10px;
+    }
+    
+    .conditions label {
+        font-family: Arial;
+        position: relative;
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .sellerContainer img {
+        width: 318px;
+        max-width: 100%;
+        height: auto;
+    }
+
 }

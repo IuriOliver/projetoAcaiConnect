@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
+    <link rel="stylesheet" href="perfilSeller.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+
+    <title>Açaí connect - Perfil</title>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="perfilContainerSeller">
+            <img src="/img/Logo_6_Sem_fundo.png" alt="">
+            <ul class="navList">
+                <li><a href="historicoSeller.html"> <i class="fi fi-br-time-past"> </i> Histórico </a></li>
+                <li><a href="registerSeller.html"> <i class="fi fi-br-map-marker-plus"> </i> Registrar Caroço </a></li>
+                <li><a href="acompSeller.html"> <i class="fi fi-br-track"></i> Acompanhar Coleta </a></li>
+                <li><a href="certifySeller.html"> <i class="fi fi-br-degree-credential"> </i> Certificados</a></li>
+                <li><a href="perfilSeller.html"> <i class="fi fi-br-user"> </i> Perfil</a></li>
+                <li><a href="/telasIniciais/login.html"> <i class="fi fi-br-exit-alt"> </i> Sair </a></li>
+            </ul>
+        </div>
+    </header>
+
+    <h1>Perfil</h1>
+
+    <div class="profileData">
+        <div>
+            <strong>Nome:</strong>
+            <input type="text" id="userName" value="João Silva" />
+        </div>
+        <div>
+            <strong>Email:</strong>
+            <input type="email" id="userEmail" value="joao.silva@example.com" />
+        </div>
+        <div>
+            <strong>Telefone:</strong>
+            <input type="tel" id="userPhone" value="91 99999-9999" />
+        </div>
+        <div>
+            <strong>Endereço:</strong>
+            <input type="text" id="userAddress" value="Rua Exemplo, 123" />
+        </div>
+        <div>
+            <strong>CPF/CNPJ:</strong>
+            <input type="text" id="userCpfCnpj" value="123.456.789-00" />
+        </div>
+        <div>
+            <strong>Senha Atual:</strong>
+            <input type="password" id="currentPassword" placeholder="Digite sua senha atual" />
+        </div>
+        <div>
+            <strong>Nova Senha:</strong>
+            <input type="password" id="newPassword" placeholder="Digite sua nova senha" />
+        </div>
+        <div>
+        
+        </div>
+        <button class="editButton" onclick="saveProfile()">Salvar</button>
+        <button class="deleteButton" onclick="deleteAccount()">Deletar Conta</button>
+    </div>
+
+    <footer>
+        <p>Siga-nos:
+            <a href="https://github.com/IuriOliver" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/IuriOliver</a>
+            <a href="https://github.com/GabrielInada" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GabrielInada</a>
+            <a href="https://github.com/GustavoNeves19" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GustavoNeves19</a>
+        </p>
+    </footer>
+
+    <script>
+        // Load user data from local storage and populate the fields
+        document.addEventListener('DOMContentLoaded', function () {
+            const userData = JSON.parse(localStorage.getItem('vendedor'));
+            if (userData) {
+                document.getElementById('userName').value = userData.nome || '';
+                document.getElementById('userEmail').value = userData.email || '';
+                document.getElementById('userPhone').value = userData.telefone || '';
+                document.getElementById('userAddress').value = userData.endereco || '';
+                document.getElementById('userCpfCnpj').value = userData.cpfCnpj || '';
+                document.getElementById('userType').value = userData.tipo || 'vendedor';
+            }
+        });
+
+        // Function to save the updated profile data
+        function saveProfile() {
+            const userData = JSON.parse(localStorage.getItem('vendedor'));
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            // Check if the current password is correct
+            if (currentPassword !== userData.senha) {
+                alert('A senha atual está incorreta.');
+                return;
+            }
+
+            // Save the updated user data
+            userData.nome = document.getElementById('userName').value;
+            userData.email = document.getElementById('userEmail').value;
+            userData.telefone = document.getElementById('userPhone').value;
+            userData.endereco = document.getElementById('userAddress').value;
+            userData.cpfCnpj = document.getElementById('userCpfCnpj').value;
+            userData.tipo = document.getElementById('userType').value;
+
+            // Update the password only if a new password is provided
+            if (newPassword) {
+                userData.senha = newPassword;
+            }
+
+            localStorage.setItem('vendedor', JSON.stringify(userData));
+            alert('Perfil atualizado com sucesso!');
+        }
+
+        // Function to delete the account
+        function deleteAccount() {
+            const confirmation = confirm("Tem certeza que deseja deletar sua conta?");
+            if (confirmation) {
+                localStorage.removeItem('vendedor');
+                alert('Conta deletada com sucesso!');
+                window.location.href = '/telasIniciais/login.html'; // Redirect to login page
+            }
+        }
+    </script>
+</body>
+
+</html>

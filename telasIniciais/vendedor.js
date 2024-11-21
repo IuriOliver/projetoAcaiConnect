@@ -25,7 +25,9 @@ document.querySelector('.cadas').addEventListener('click', function () {
         localStorage.setItem('vendedor', JSON.stringify(vendedorData));
 
         alert('Vendedor cadastrado com sucesso!');
-        // Redirecionar ou limpar os campos
+        
+        // Redireciona para a página de login
+        window.location.href = 'login.html';
     } else {
         alert('Por favor, preencha todos os campos e aceite os Termos e Condições de Uso.');
     }

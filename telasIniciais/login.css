@@ -89,43 +89,132 @@ input[type="password"] {
 }
 
 .link {
-    
+
     height: 100%;
     width: auto;
     text-align: center;
     margin-top: 10px;
 }
 
+footer {
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(-180deg, white, #cb8fff);
+    border-radius: 64px 64px 0 0;
+
+}
+
+footer a {
+    text-decoration: none;
+    color: #9900cc;
+    margin-left: 16px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* Media Query para telas pequenas (máx. 768px) */
 @media (max-width: 768px) {
     .container {
-        max-width: 90%; /* Ajusta a largura da container para celulares */
-        padding: 15px; /* Reduz o padding */
-        height: auto; /* Permite que a altura se ajuste conforme o conteúdo */
+        max-width: 90%;
+        /* Ajusta a largura da container para celulares */
+        padding: 15px;
+        /* Reduz o padding */
+        height: auto;
+        /* Permite que a altura se ajuste conforme o conteúdo */
     }
 
     .container img {
-        max-width: 100%; /* Reduz o tamanho da imagem */
-        height: auto; /* Ajusta a altura da imagem para manter a proporção */
+        max-width: 100%;
+        /* Reduz o tamanho da imagem */
+        height: auto;
+        /* Ajusta a altura da imagem para manter a proporção */
     }
 
     .message {
-        font-size: 20px; /* Reduz o tamanho da fonte da mensagem */
-        text-align: center; /* Centraliza o texto */
+        font-size: 20px;
+        /* Reduz o tamanho da fonte da mensagem */
+        text-align: center;
+        /* Centraliza o texto */
     }
 
     .container button {
-        width: 50%; /* Faz o botão ocupar 100% da largura */
-        padding: 10px 0; /* Ajusta o padding do botão */
-        margin-top: 20px; /* Ajusta a margem superior do botão */
+        width: 50%;
+        /* Faz o botão ocupar 100% da largura */
+        padding: 10px 0;
+        /* Ajusta o padding do botão */
+        margin-top: 20px;
+        /* Ajusta a margem superior do botão */
     }
 
     .link {
         text-align: center;
-        margin-top: 15px; /* Diminui o espaço entre o link e o botão */
+        margin-top: 15px;
+        /* Diminui o espaço entre o link e o botão */
     }
 
     .link a {
-        font-size: 14px; /* Ajusta o tamanho da fonte do link */
+        font-size: 14px;
+        /* Ajusta o tamanho da fonte do link */
     }
+
+    footer {
+
+        font-size: 12px;
+
+    }
+}
+
+@media (max-width: 1518px) {
+
+    .container {
+        max-width: 90%;
+        /* Ajusta a largura da container para celulares */
+        padding: 15px;
+        /* Reduz o padding */
+        height: auto;
+        /* Permite que a altura se ajuste conforme o conteúdo */
+    }
+
+    .container img {
+        max-width: 100%;
+        /* Reduz o tamanho da imagem */
+        height: auto;
+        /* Ajusta a altura da imagem para manter a proporção */
+    }
+
+    .message {
+        font-size: 20px;
+        /* Reduz o tamanho da fonte da mensagem */
+        text-align: center;
+        /* Centraliza o texto */
+    }
+
+    .container button {
+        width: 50%;
+        /* Faz o botão ocupar 100% da largura */
+        padding: 10px 0;
+        /* Ajusta o padding do botão */
+        margin-top: 20px;
+        /* Ajusta a margem superior do botão */
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 15px;
+        /* Diminui o espaço entre o link e o botão */
+    }
+
+    .link a {
+        font-size: 14px;
+        /* Ajusta o tamanho da fonte do link */
+    }
+
+
 }

@@ -8,24 +8,16 @@
     <link rel="stylesheet" href="registerSeller.css">
     <link rel="shortcut icon" href="/img/favicon_acai.png" type="image/x-icon">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.4.0/assets/css/leaflet.css" />
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <style>
-        #map {
-            height: 500px;
-            width: 800px;
-            max-width: 50%;
-            max-height: 35%;
-            border: 1px solid black;
-            border-radius: 16px;
-        }
+
     </style>
 
     <title>Açaí connect - Registrar caroço</title>
@@ -40,9 +32,9 @@
             <ul class="navList-register">
                 <li><a href="historicoSeller.html"> <i class="fi fi-br-time-past"> </i> Histórico </a></li>
                 <li><a href="registerSeller.html"> <i class="fi fi-br-map-marker-plus"> </i> Registrar Caroço </a></li>
-                <li><a href="acompSeller.html"> <i class="fi fi-br-track"></i> </i> Acompanhar Coleta</a></li>
+                <li><a href="acompSeller.html"> <i class="fi fi-br-track"></i> Acompanhar Coleta</a></li>
                 <li> <a href="certifySeller.html"> <i class="fi fi-br-degree-credential"> </i> Certificados</a></li>
-                <li><a href=""> <i class="fi fi-br-user"> </i>Perfil</a></li>
+                <li><a href="perfilSeller.html"> <i class="fi fi-br-user"> </i>Perfil</a></li>
                 <li><a href="/telasIniciais/login.html"> <i class="fi fi-br-exit-alt"> </i> Sair </a></li>
             </ul>
 
@@ -58,75 +50,158 @@
             <div class="headerPit">
                 <h2>Pontos de coletas cadastrados</h2>
             </div>
-            <ul id="listPit"></ul>
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fornecedor</th>
+                            <th>Endereço</th>
+                            <th>Quantidade (kg)</th>
+                            <th>Horário de Coleta</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listPit"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <button class="registerButton">Registrar Caroço</button>
 
+    <footer>
+        <p>Siga-nos:
+            <a href="https://github.com/IuriOliver" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/IuriOliver</a>
+            <a href="https://github.com/GabrielInada" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GabrielInada</a>
+            <a href="https://github.com/GustavoNeves19" target="_blank"><i class="fi fi-brands-github"></i>
+                github.com/GustavoNeves19</a>
+        </p>
+    </footer>
+
     <script>
-        // Inicializando o mapa
+
+        var lastLatLng = null; // Variable to store the last clicked position
+
+        // Initialize the map
         var map = L.map('map').setView([-1.3857, -48.4252], 11);
-    
-        // Adicionando o tile layer do OpenStreetMap
+
+        // Add the tile layer from OpenStreetMap
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
-    
-        var lastLatLng = null; // Variável para armazenar a última posição clicada
-    
-        // Evento de clique no mapa
-        map.on('click', function (e) {
-            lastLatLng = e.latlng; // Armazena as coordenadas do clique
-            alert("Local selecionado!"); // Alerta com a localização
+
+        // Create a custom icon for the markers
+        var acaiIcon = L.icon({
+            iconUrl: '/img/acai.png', // Path to your custom icon image
+            iconSize: [38, 38], // Size of the icon
+            iconAnchor: [19, 38], // Point of the icon which will correspond to marker's location
+            popupAnchor: [0, -38] // Point from which the popup should open relative to the iconAnchor
         });
-    
-        // Função para adicionar um marcador
-        function addMarker(lat, lng, info) {
-            var marker = L.marker([lat, lng]).addTo(map); // Adiciona o marcador padrão
-            marker.bindPopup(info).openPopup(); // Vincula um popup ao marcador
-            return marker; // Retorna o marcador
+
+        // Event listener for map clicks
+        map.on('click', function (e) {
+            lastLatLng = e.latlng; // Store the coordinates of the click
+            alert("Local selecionado!"); // Alert with the location
+        });
+
+        // Function to save the table data in local storage
+        function saveTableData() {
+            var tableData = [];
+            var rows = document.querySelectorAll('#listPit tr');
+            rows.forEach(row => {
+                var cells = row.querySelectorAll('td');
+                var rowData = {
+                    fornecedor: cells[0].textContent,
+                    endereco: cells[1].textContent,
+                    quantidade: cells[2].textContent,
+                    horario: cells[3].textContent
+                };
+                tableData.push(rowData);
+            });
+            localStorage.setItem('tableData', JSON.stringify(tableData));
         }
-    
-        // Evento de clique no botão de registrar
+
+        // Function to load table data from local storage
+        function loadTableData() {
+            var tableData = JSON.parse(localStorage.getItem('tableData')) || [];
+            tableData.forEach(data => {
+                var row = document.createElement('tr');
+                row.innerHTML = `<td>${data.fornecedor}</td>
+                                 <td>${data.endereco}</td>
+                                 <td>${data.quantidade}</td>
+                                 <td>${data.horario}</td>`;
+                document.getElementById('listPit').appendChild(row);
+            });
+        }
+
+        // Load markers from local storage
+        function loadMarkers() {
+            var markers = JSON.parse(localStorage.getItem('markers')) || [];
+            markers.forEach(markerData => {
+                addMarker(markerData.lat, markerData.lng, markerData.info);
+            });
+        }
+
+        // Function to save the marker data in local storage
+        function saveMarker(lat, lng, info) {
+            var markers = JSON.parse(localStorage.getItem('markers')) || [];
+            markers.push({ lat: lat, lng: lng, info: info });
+            localStorage.setItem('markers', JSON.stringify(markers));
+        }
+
+        // Function to add a marker to the map with the custom icon
+        function addMarker(lat, lng, info) {
+            var marker = L.marker([lat, lng], { icon: acaiIcon }).addTo(map); // Add the marker with custom icon to the map
+            marker.bindPopup(info).openPopup(); // Bind a popup to the marker
+            return marker; // Return the marker
+        }
+
+        // Load data when the page is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            loadTableData(); // Load table data
+            loadMarkers(); // Load markers
+        });
+
         document.querySelector('.registerButton').addEventListener('click', function () {
-            if (lastLatLng) { // Verifica se uma posição foi selecionada
-                // Coleta as informações do usuário
+            if (lastLatLng) {
                 var fornecedor = prompt("Nome do fornecedor:");
-                var endereco = prompt("Endereço:");
-                var quantidade = prompt("Quantidade:");
-                var horario = prompt("Horário de coleta:");
-    
-                // Verifica se todos os campos foram preenchidos
+                var endereco = prompt("Endereço (CEP e número):");
+                var quantidade = prompt("Quantidade (Em kg):");
+                var horario = prompt("Horário de coleta ('00:00 até ás 23:59'):");
+
                 if (fornecedor && endereco && quantidade && horario) {
-                    // Formata a string com as informações, colocando as variáveis em negrito
                     var info = `<b>Nome do fornecedor:</b> ${fornecedor};<br> 
                                 <b>Endereço (CEP e número do local):</b> ${endereco};<br> 
                                 <b>Quantidade (em KG):</b> ${quantidade};<br> 
                                 <b>Horário de coleta (De 00:00 até ás 00:00):</b> ${horario}.`;
-    
-                    // Adiciona o marcador na localização clicada
+
+                    // Save the marker data in local storage
+                    saveMarker(lastLatLng.lat, lastLatLng.lng, info);
+
+                    // Add marker to the map with the custom icon
                     addMarker(lastLatLng.lat, lastLatLng.lng, info);
-    
-                    // Cria um novo item de lista
-                    var listItem = document.createElement('li');
-    
-                    // Define o conteúdo com quebras de linha e negrito
-                    listItem.innerHTML = info;
-    
-                    // Adiciona o item à lista
-                    document.getElementById('listPit').appendChild(listItem);
+
+                    // Create a new row in the table
+                    var row = document.createElement('tr');
+                    row.innerHTML = `<td>${fornecedor}</td>
+                                     <td>${endereco}</td>
+                                     <td>${quantidade}</td>
+                                     <td>${horario}</td>`;
+                    document.getElementById('listPit').appendChild(row);
+
+                    // Save the table data in local storage
+                    saveTableData();
                 } else {
-                    alert("Por favor, preencha todos os campos."); // Alerta se algum campo estiver vazio
+                    alert("Por favor, preencha todos os campos.");
                 }
             } else {
-                alert("Por favor, clique em uma localização no mapa antes de registrar."); // Alerta se nenhuma localização foi selecionada
+                alert("Por favor, clique em uma localização no mapa antes de registrar.");
             }
         });
     </script>
-    
-    
+
 </body>
 
 </html>

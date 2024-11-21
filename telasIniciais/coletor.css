@@ -15,7 +15,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: white;
-    padding: 30px;
+    padding: 15px;
     border-radius: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 30%;
@@ -23,7 +23,7 @@ body {
 }
 
 .colectorContainer img {
-    width: 318px;
+    width: 280px;
     height: auto;
     max-width: 100%;
     max-height: 100%;
@@ -101,11 +101,37 @@ body {
     text-decoration: none;
 }
 
+footer{
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(-180deg, white, #cb8fff);
+    border-radius: 64px 64px 0 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: #9900cc;
+    margin-left: 16px;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
 /* Media Query para telas pequenas (máx. 768px) */
 @media (max-width: 768px) {
     .colectorContainer {
-        width: 90%; /* Reduz a largura da container para dispositivos móveis */
+         /* Reduz a largura da container para dispositivos móveis */
         padding: 15px; /* Reduz o padding para telas pequenas */
+        height: 700px;
+        width: 400px;
+        max-width: 60%;
+        max-height: 70%;
     }
 
     .colectorContainer img {
@@ -148,5 +174,64 @@ body {
         bottom: 20px;
     }
     
+    footer{
+        
+        font-size: 12px;
+        
+        
+    }
 
 }
+
+@media (min-width: 768px) and (max-width: 1518px){
+
+    .colectorContainer {
+        width: 90%; /* Reduz a largura da container para dispositivos móveis */
+        padding: 15px; /* Reduz o padding para telas pequenas */
+        min-height: 500px;
+        min-width: 400px;
+    
+    }
+
+    .colectorContainer img {
+        max-width: 100%;
+        width: 318px; /* Ajusta o tamanho da imagem para dispositivos móveis */
+        height: auto;
+    }
+
+    .colectorContainer h1 {
+         /* Reduz o tamanho da fonte do título */
+        margin-bottom: 20px; /* Diminui a margem inferior */
+    }
+
+    .colectorContainer input {
+        width: 50%; /* Inputs ocupam toda a largura disponível */
+    }
+
+    .colectorConditions {
+        flex-direction: column; /* Organiza o checkbox e o texto em coluna */
+        align-items: flex-start;
+    }
+
+    .colectorCadas {
+        width: 50%; /* Botão ocupa toda a largura disponível */
+        padding: 15px 0; /* Ajuste do tamanho do botão */
+    }
+
+    .colectorConditions input {
+        position: relative;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+    }
+    
+    .colectorConditions label {
+        font-family: Arial;
+        position: relative;
+        left: 30px;
+        bottom: 20px;
+    }
+
+}
+
